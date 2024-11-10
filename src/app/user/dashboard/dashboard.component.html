@@ -1,0 +1,14 @@
+<app-user-navbar></app-user-navbar>
+<div class="col"> 
+  <div class="row m-1" *ngFor="let data of notes">
+    <div class="custom-card col" (mouseenter)="data.showButtons = true" (mouseleave)="data.showButtons = false">
+      <div class="custom-card-content m-2" id="body">
+        <strong>{{ data.title }} </strong>{{data.body}}
+      </div>
+      <div class="custom-card-actions col" [ngClass]="{'visible': data.showButtons}">
+        <mat-icon class="edit-icon" (click)="editNote(data.id)">edit</mat-icon>
+        <mat-icon class="delete-icon" (click)="deleteNote(data.id)">delete</mat-icon>
+      </div>
+    </div>
+  </div>
+</div>

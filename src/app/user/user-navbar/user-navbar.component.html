@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid mr-auto">
+      <ul class="nav  flex">
+        <li class="nav-item">
+          <a class="nav-link text-white">Notes Wave</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/notes/add" >Add Note</a>
+        </li>
+       </ul>
+       
+      <ul class="nav justify-content-end  flex">
+        <li class="nav-item text-white"><a class="nav-link">Welcome {{firstName}}</a></li>
+        <li class="nav-item">
+        <a (click)="logOutLogin()" class="btn btn-primary btn-md" data-toggle="tooltip" title="Logout">
+          <span class="fa fa-sign-out"></span> Log out
+        </a>       </li>
+        
+      </ul>
+    </div>
+  </nav> 

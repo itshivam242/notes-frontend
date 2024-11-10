@@ -1,0 +1,38 @@
+<app-user-navbar></app-user-navbar>
+
+<a href="dashboard" class="mx-4 mt-5">Back</a>
+<div class="container-fluid col-md-5 ">
+    <h4>Edt Notes</h4>
+    <form [formGroup]="editNotesForm" (ngSubmit)="editNotes()" ngNativeValidate>
+        <div class="my-3">
+            <label for="btitle" class="form-label"><em>Title</em></label>
+            <input type="text" class="form-control" formControlName="title" id="title" required>
+        </div>
+        <div class="my-3">
+            <label for="body" class="form-label"><em>Note</em></label>
+            <input type="textarea" class="form-control" formControlName="body" id="body" required>
+            <div
+                *ngIf="editNotesForm.get('body')?.hasError('required') && (editNotesForm.get('body')?.dirty || editNotesForm.get('body')?.touched)">
+                <div class="text-danger">
+                    Body is required.
+                </div>
+            </div>
+            <div
+                *ngIf="editNotesForm.get('body')?.hasError('maxlength') && (editNotesForm.get('body')?.dirty || editNotesForm.get('body')?.touched)">
+                <div class="text-danger">
+                    Maximum length of 500 characters exceeded.
+                </div>
+            </div>
+            <div
+                *ngIf="editNotesForm.get('body')?.hasError('pattern') && (editNotesForm.get('body')?.dirty || editNotesForm.get('body')?.touched)">
+                <div class="text-danger">
+                    Invalid characters. Only alphanumeric,[@, ; & * + -] special characters and whitespace are allowed.
+                </div>
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary my-3"><strong>Submit</strong></button>
+            <button type="reset" class="btn btn-secondary my-3 mx-2"><strong>Clear</strong></button>
+        </div>
+    </form>
+</div>
